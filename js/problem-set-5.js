@@ -27,22 +27,22 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-height= prompt("Please enter a value between 1 and 23: ");
-  while (height > 1 || height < 23);{
+height = prompt("Please enter a value between 1 and 23: ");
+  while (height > 1 || height < 23) {
   height = prompt("Please enter a value between 1 and 23: ");
 }
 
-  var div = document.getElementById ("mario-easy");
 
-  for (div = 0;){
-    for(){
+    var p = document.getElementById ("mario-easy-output");
 
-    }
-    for(n = 0; n < ; n++){
-      div.innerHTML += "#";
-    }
-    div.innerHTML += "#<br/>";
+  for (x = 1; x < 23; x++) {
+
+
   }
+
+
+
+
 
 
   ////////////////////////// DO NOT MODIFY
@@ -206,6 +206,22 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+ windspeed = prompt("Please enter the windspeed: ");
+
+var e = document.getElementById("hurricane-output");
+
+  if(windspeed >= 157) {
+    e.innerHTML = "Hurricane Category: Category 5";
+  }
+  else if (windspeed ) {
+  //B
+  }
+  else if () {
+
+  }
+  else () {
+    //code to run
+  }
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
