@@ -208,19 +208,29 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
  windspeed = prompt("Please enter the windspeed: ");
 
-var e = document.getElementById("hurricane-output");
 
-  if(windspeed >= 157) {
-    e.innerHTML = "Hurricane Category: Category 5";
-  }
-  else if (windspeed ) {
-  //B
-  }
-  else if () {
+ var  div5 = document.getElementById("hurricane-output");
 
+  if (windspeed >= 157) {
+    div5.innerHTML = ("Hurricane Category: 5");
   }
-  else () {
-    //code to run
+  else if (windspeed >= 130 && windspeed <=156) {
+    div5.innerHTML = ("Hurricane Category: 4");
+  }
+  else if (windspeed >=111 && windspeed <=129) {
+    div5.innerHTML = ("Hurricane Catergory: 3");
+  }
+  else if (windspeed >=96 && windspeed <=110) {
+    div5.innerHTML = ("Hurricane Category: 2");
+  }
+  else if (windspeed >=74 && windspeed <=95) {
+      div5.innerHTML = ("Hurricane Category: 1");
+  }
+  else if (windspeed >=39 && windspeed <=73) {
+    div5.innerHTML = ("Hurricane Category: Tropical Storm");
+  }
+  else (windspeed <= 38) {
+    div5.innerHTML = ("No Hurricane Category Applicable");
   }
 
   ///////////////////////////////// DO NOT MODIFY
