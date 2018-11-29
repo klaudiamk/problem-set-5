@@ -28,16 +28,20 @@ function mario() {
 
   // WRITE YOUR EXERCISE 1 CODE HERE
 height = prompt("Please enter a value between 1 and 23: ");
-  while (height > 1 || height < 23) {
+  while (height < 1 || height > 23) {
   height = prompt("Please enter a value between 1 and 23: ");
 }
+height = Number(height);
 
 
     var p = document.getElementById ("mario-easy-output");
 
   for (x = 1; x < 23; x++) {
-
-
+    for (y =0; y <= x; y++)
+    {
+      System.out.print("#");
+    }
+    System.out.print("/n");
   }
 
 
@@ -132,6 +136,9 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
+ card = prompt("Please enter credit card number: ");
+
+  var div3 = document.getElementById("credit-output");
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
@@ -171,7 +178,27 @@ function credit() {
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
+var div4 = document.getElementById("guess-output");
+let str= "";
+let a= 1;
+let b= 0;
 
+
+let target = Math.floor(Math.random() * (1000 - 1) + 1);
+console.log(target);
+let guess = prompt("Please try to guess the number: ");
+let counter = 0;
+
+
+while (guess != target) {
+  if (guess > target && guess <= 1000 && guess >= 1) {
+    counter++;
+    guess = prompt("Please try to guess a lower number: ")
+  } else if (guess < target && guess <= 1000 && guess >= 1){
+    counter++;
+    guess = prompt("Please try to guess a higher number: ")
+  }
+}
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -206,32 +233,38 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+
+
  windspeed = prompt("Please enter the windspeed: ");
+while (windspeed < 0 || windspeed % 1 != 0) {
+  windspeed = prompt("Please enter the windspeed: ");
+}
 
-
- var  div5 = document.getElementById("hurricane-output");
+ var div5 = document.getElementById("hurricane-output");
 
   if (windspeed >= 157) {
-    div5.innerHTML = ("Hurricane Category: 5");
+    div5.innerHTML = ("Hurricane Category 5.");
   }
   else if (windspeed >= 130 && windspeed <=156) {
-    div5.innerHTML = ("Hurricane Category: 4");
+    div5.innerHTML = ("Hurricane Category 4.");
   }
   else if (windspeed >=111 && windspeed <=129) {
-    div5.innerHTML = ("Hurricane Catergory: 3");
+    div5.innerHTML = ("Hurricane Category 3.");
   }
   else if (windspeed >=96 && windspeed <=110) {
-    div5.innerHTML = ("Hurricane Category: 2");
+    div5.innerHTML = ("Hurricane Category 2.");
   }
   else if (windspeed >=74 && windspeed <=95) {
-      div5.innerHTML = ("Hurricane Category: 1");
+      div5.innerHTML = ("Hurricane Category 1.");
   }
   else if (windspeed >=39 && windspeed <=73) {
-    div5.innerHTML = ("Hurricane Category: Tropical Storm");
+    div5.innerHTML = ("Tropical Storm.");
   }
-  else (windspeed <= 38) {
-    div5.innerHTML = ("No Hurricane Category Applicable");
+  else if (windspeed < 38) {
+    div5.innerHTML = ("The skies are calm...");
   }
+
+  windspeed = Number(windspeed);
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
