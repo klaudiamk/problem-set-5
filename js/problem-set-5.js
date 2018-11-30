@@ -26,28 +26,30 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 1 CODE HERE
-height = prompt("Please enter a value between 1 and 23: ");
-  while (height < 1 || height > 23) {
-  height = prompt("Please enter a value between 1 and 23: ");
-}
-height = Number(height);
+  var div=document.getElementById("mario-easy-output");
 
-
-    var p = document.getElementById ("mario-easy-output");
-
-  for (x = 1; x < 23; x++) {
-    for (y =0; y <= x; y++)
-    {
-      System.out.print("#");
+    while (height < 1 || height > 23 || Number.isInteger(height)==false) {
+      height = Number(prompt("Enter a height between 1 and 23."));
     }
-    System.out.print("/n");
+
+  let i = 0;
+  let rows = "";
+  let hash = "#";
+  let space = `&nbsp`;
+
+  while(i < height) {
+    for(let j=0; j<=(height-2-i);j++) {
+      rows = rows + space;
   }
 
+    for(let k=0; k<=(1+i);k++) {
+      rows = rows + hash;
+  }
+      rows = rows + "<br>";
+      i++;
+  }
 
-
-
-
+    div.innerHTML="<code>"+rows+"</code>";
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -82,7 +84,32 @@ function marioAgain() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 2 CODE HERE
+  var div2=document.getElementById("mario-hard-output");
+
+    while (height < 1 || height > 23 || Number.isInteger(height)==false) {
+      height = Number(prompt("Enter a height between 1 and 23."));
+    }
+
+  let i = 0;
+  let rows = "";
+  let hash = "##";
+  let space = `&nbsp`;
+
+  while(i < height) {
+    for(let j=0; j<=(height-2-i);j++) {
+      rows = rows + space;
+  }
+
+    for(let k=0; k<=(1+i);k++) {
+      rows = rows + hash;
+  }
+   rows = rows + space + space;
+      rows = rows + "<br>";
+
+  }
+
+    div2.innerHTML="<code>"+rows+"</code>";
+    
 
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
@@ -295,6 +322,10 @@ function gymnastics() {
   let total = 0; //// DO NOT MODIFY
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
+var div6 = document.getElementById("gymnastics-output");
+
+scores = ""
+
 
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
