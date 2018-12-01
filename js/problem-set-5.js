@@ -84,32 +84,50 @@ function marioAgain() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  var div2=document.getElementById("mario-hard-output");
+  let div2 = document.getElementById("mario-hard-output");
 
-    while (height < 1 || height > 23 || Number.isInteger(height)==false) {
+    do {
       height = Number(prompt("Enter a height between 1 and 23."));
+    } while (height < 1 || height > 23);
+
+    let total = "";
+
+
+    for (let i=0; i<height; i++){
+
+    let row = "";
+
+      for (let i2=0; i2<(height-i-1); i2++){
+
+        row = row+"&nbsp;";
+
+      }
+
+      row = row+"#";
+
+      for (let i3=0; i3<(i+1); i3++){
+
+        row = row+"#";
+
+      }
+
+      row = row+"&nbsp;&nbsp;#";
+
+      for (let i4=0; i4<(i+1); i4++){
+
+        row = row+"#";
+
+      }
+
+
+
+      total = total+row+"<br/>";
+
     }
 
-  let i = 0;
-  let rows = "";
-  let hash = "##";
-  let space = `&nbsp`;
+    div2.innerHTML = "<code>" + total + "</code>";
 
-  while(i < height) {
-    for(let j=0; j<=(height-2-i);j++) {
-      rows = rows + space;
-  }
 
-    for(let k=0; k<=(1+i);k++) {
-      rows = rows + hash;
-  }
-   rows = rows + space + space;
-      rows = rows + "<br>";
-
-  }
-
-    div2.innerHTML="<code>"+rows+"</code>";
-    
 
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
@@ -163,10 +181,48 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
- card = prompt("Please enter credit card number: ");
+  let div3 = document.getElementById("credit-output");
 
-  var div3 = document.getElementById("credit-output");
+    do {
+      card = prompt("What card number would you like to check?");
+    }
+    while ((card.length < 13 || card.length > 16) && /[^0-9]/.test(card));
 
+    let cardInt = Number(card);
+    let luhnTotal=0;
+    let digit=0;
+    let denom = 10;
+    let even=false;
+
+    for (let i = card.length; i>=0; i--){
+
+      digit = cardInt % 10;
+
+      cardInt = Math.floor(cardInt / 10);
+
+      if (even) {
+        digit *= 2;
+      }
+      if (digit>=10){
+        digit -= 9;
+      }
+      luhnTotal += digit;
+      even = !even;
+    }
+
+    let luhnMod = luhnTotal%10;
+
+    if (luhnMod!=0){
+        div3.innerHTML="<img src=images/invalid.png width=100% />";
+    } else if (card.length == 15 && card.charAt(0)==3 && (card.charAt(1)==4 || card.charAt(1)==7)){
+          div3.innerHTML="<img src=images/amex.png width=100% />";
+    } else if (card.length == 16 && card.charAt(0)==5 && (card.charAt(1)==1 || card.charAt(1)==2 || card.charAt(1)==3 || card.charAt(1)==4 || card.charAt(1)==5)){
+          div3.innerHTML="<img src=images/mastercard.png width=100% />";
+    } else if ((card.length == 13 || card.length == 16) && card.charAt(0)==4){
+          div3.innerHTML="<img src=images/visa.png width=100% />";
+    } else {
+        div3.innerHTML="<img src=images/invalid.png width=100% />";
+    }
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
