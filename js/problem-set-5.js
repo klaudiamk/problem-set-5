@@ -184,7 +184,7 @@ function credit() {
   let div3 = document.getElementById("credit-output");
 
     do {
-      card = prompt("What card number would you like to check?");
+      card = prompt("Enter a credit card number.");
     }
     while ((card.length < 13 || card.length > 16) && /[^0-9]/.test(card));
 
@@ -326,19 +326,19 @@ while (windspeed < 0 || windspeed % 1 != 0) {
  var div5 = document.getElementById("hurricane-output");
 
   if (windspeed >= 157) {
-    div5.innerHTML = ("Hurricane Category 5.");
+    div5.innerHTML = ("Category 5 Hurricane.");
   }
   else if (windspeed >= 130 && windspeed <=156) {
-    div5.innerHTML = ("Hurricane Category 4.");
+    div5.innerHTML = ("Category 4 Hurricane.");
   }
   else if (windspeed >=111 && windspeed <=129) {
-    div5.innerHTML = ("Hurricane Category 3.");
+    div5.innerHTML = ("Category 3 Hurricane.");
   }
   else if (windspeed >=96 && windspeed <=110) {
-    div5.innerHTML = ("Hurricane Category 2.");
+    div5.innerHTML = ("Category 2 Hurricane.");
   }
   else if (windspeed >=74 && windspeed <=95) {
-      div5.innerHTML = ("Hurricane Category 1.");
+      div5.innerHTML = ("Category 1 Hurricane.");
   }
   else if (windspeed >=39 && windspeed <=73) {
     div5.innerHTML = ("Tropical Storm.");
@@ -378,9 +378,15 @@ function gymnastics() {
   let total = 0; //// DO NOT MODIFY
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
-var div6 = document.getElementById("gymnastics-output");
 
-scores = ""
+for (i =0; i<=5; i++) {
+  do {
+    score = Number(prompt("What is the score ${i+1}?"));
+  } while (score < 0.0 || score > 10.0);
+  scores.push(score);
+}
+
+
 
 
   /*
@@ -395,6 +401,53 @@ scores = ""
    *       scores.push(firstScore);   // your variable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
+
+   do {
+     score1 = Number(prompt("Please enter the score."));
+   } while (score1 < 0.0 || score1 > 10.0|| !Number.isInteger(score1));
+
+   scores.push(score1);
+
+   do {
+     score2 = Number(prompt("Please enter the score."));
+   } while (score2 < 0.0 || score2 > 10.0|| !Number.isInteger(score2));
+
+   scores.push(score2);
+
+   do {
+     score3 = Number(prompt("Please enter the score."));
+   } while (score3 < 0.0 || score3 > 10.0|| !Number.isInteger(score3));
+
+   scores.push(score3);
+
+   do {
+     score4 = Number(prompt("Please enter the score."));
+   } while (score4 < 0.0 || score4 > 10.0|| !Number.isInteger(score4));
+
+   scores.push(score4);
+
+   do {
+
+     score5 = Number(prompt("Please enter the score."));
+   } while (score5 < 0.0 || score5 > 10.0|| !Number.isInteger(score5));
+
+   scores.push(score5);
+
+   do {
+     score6 = Number(prompt("Please enter the score."));
+   } while (score6 < 0.0 || score6 > 10.0|| !Number.isInteger(score6));
+
+   scores.push(score6);
+
+   let Total = Number(score1) + Number(score2) + Number(score3) + Number(score4) + Number(score5) + Number(score6);
+
+   let average = (Total - Math.max(score1, score2, score3, score4, score5, score6) - Math.min(score1, score2, score3, score4, score5, score6)) / 4;
+
+   let div6 = document.getElementById('gymnastics-output');
+
+   div6.innerHTML = 'Discarded: ' + Math.min(score1, score2, score3, score4, score5, score6) + ', ' + Math.max(score1, score2, score3, score4, score5, score6) + '<br />Score: ' + average.toFixed(2);
+
+     /*
 
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
@@ -458,4 +511,3 @@ function reportCard() {
     homeworks /////////// DO NOT MODIFY
   ); //////////////////// DO NOT MODIFY
   /////////////////////// DO NOT MODIFY
-}
