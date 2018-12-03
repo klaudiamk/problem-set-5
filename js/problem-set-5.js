@@ -188,7 +188,8 @@ function credit() {
     }
     while ((card.length < 13 || card.length > 16) && /[^0-9]/.test(card));
 
-    let cardInt = Number(card);
+    card = Number(card);
+    let cardInt = card;
     let luhnTotal=0;
     let digit=0;
     let denom = 10;
@@ -379,16 +380,6 @@ function gymnastics() {
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
 
-for (i =0; i<=5; i++) {
-  do {
-    score = Number(prompt("What is the score ${i+1}?"));
-  } while (score < 0.0 || score > 10.0);
-  scores.push(score);
-}
-
-
-
-
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
    *       six of the judges' scores.
@@ -427,7 +418,6 @@ for (i =0; i<=5; i++) {
    scores.push(score4);
 
    do {
-
      score5 = Number(prompt("Please enter the score."));
    } while (score5 < 0.0 || score5 > 10.0|| !Number.isInteger(score5));
 
@@ -440,14 +430,10 @@ for (i =0; i<=5; i++) {
    scores.push(score6);
 
    let Total = Number(score1) + Number(score2) + Number(score3) + Number(score4) + Number(score5) + Number(score6);
-
    let average = (Total - Math.max(score1, score2, score3, score4, score5, score6) - Math.min(score1, score2, score3, score4, score5, score6)) / 4;
-
    let div6 = document.getElementById('gymnastics-output');
-
    div6.innerHTML = 'Discarded: ' + Math.min(score1, score2, score3, score4, score5, score6) + ', ' + Math.max(score1, score2, score3, score4, score5, score6) + '<br />Score: ' + average.toFixed(2);
 
-     /*
 
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
@@ -483,6 +469,11 @@ function reportCard() {
   let homeworkTotal = 0; // DO NOT MODIFY
   ///////////////////////// DO NOT MODIFY
 
+  do {
+    let testScore = Number(prompt("Please enter the score. Enter -1 when you are fiinished."));
+  } while (testScore < 0.0 || testScore > 100.0|| !Number.isInteger(testScore));
+
+
   /*
    * NOTE: The 'testTotal', 'quizTotal', and 'homeworkTotal' variables
    *       should be representative of the sum of the test scores, quiz
@@ -511,3 +502,4 @@ function reportCard() {
     homeworks /////////// DO NOT MODIFY
   ); //////////////////// DO NOT MODIFY
   /////////////////////// DO NOT MODIFY
+}
