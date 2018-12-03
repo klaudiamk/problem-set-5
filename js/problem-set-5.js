@@ -181,48 +181,49 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
-  let div3 = document.getElementById("credit-output");
+  let sum1 = 0;
+  let sum2 = 0;
 
-    do {
-      card = prompt("Enter a credit card number.");
+  while (true){
+    card = prompt("Please enter your credit card number: ");
+    if ((card.length == 16) && Number.isInteger(Number(card))){
+      break;
     }
-    while ((card.length < 13 || card.length > 16) && /[^0-9]/.test(card));
+  }
 
-    card = Number(card);
-    let cardInt = card;
-    let luhnTotal=0;
-    let digit=0;
-    let denom = 10;
-    let even=false;
+  for(let i = card.length-2; i >= 0; i-=2) {
+    let num = Number(card[i]) * 2;
+    let numStrn = num.toString();
+    let numSum = 0;
 
-    for (let i = card.length; i>=0; i--){
-
-      digit = cardInt % 10;
-
-      cardInt = Math.floor(cardInt / 10);
-      if (even) {
-        digit *= 2;
-      }
-      if (digit>=10){
-        digit -= 9;
-      }
-      luhnTotal += digit;
-      even = !even;
+    for (let j = 0 ; j < numStrn.length; j++){
+      numSum = numSum + Number(numStrn[j]);
     }
 
-    let luhnMod = luhnTotal%10;
+    sum1 = numSum + sum1;
+    console.log(sum1);
+  }
 
-    if (luhnMod!=0){
-        div3.innerHTML="<img src=images/invalid.png width=100% />";
-    } else if (card.length == 15 && card.charAt(0)==3 && (card.charAt(1)==4 || card.charAt(1)==7)){
-          div3.innerHTML="<img src=images/amex.png width=100% />";
-    } else if (card.length == 16 && card.charAt(0)==5 && (card.charAt(1)==1 || card.charAt(1)==2 || card.charAt(1)==3 || card.charAt(1)==4 || card.charAt(1)==5)){
-          div3.innerHTML="<img src=images/mastercard.png width=100% />";
-    } else if ((card.length == 13 || card.length == 16) && card.charAt(0)==4){
-          div3.innerHTML="<img src=images/visa.png width=100% />";
-    } else {
-        div3.innerHTML="<img src=images/invalid.png width=100% />";
-    }
+  for(let k = card.length-1; k >= 0;k-=2){
+    sum2 = sum2 + Number(card[k])
+  }
+
+  console.log(sum2);
+
+  if (card.length == 15 && (card[0] == 3 &&(card[1] == 7 || card[1] == 4)) && (sum1 + sum2 )% 10 == 0){
+    document.getElementById("credit-output").innerHTML="<img src ='./images/amex.png'/>";
+  }
+  else if ((card.length == 13 || card.length == 16) && card[0] == 4 && (sum1 + sum2) % 10 == 0){
+    document.getElementById("credit-output").innerHTML="<img src ='./images/visa.png'/>";
+  }
+  else if (card.length == 16 && (card[0] == 5 && (card[1] == 1 || card[1] == 2 || card[1] == 4 || card[1] == 5)) && (sum1 + sum2) % 10 == 0){
+    document.getElementById("credit-output").innerHTML="<img src ='./images/mastercard.png'/>";
+  }
+  else {
+    document.getElementById("credit-output").innerHTML="<img src ='./images/invalid.png'/>";
+  }
+
+  card=Number(card);
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -468,11 +469,6 @@ function reportCard() {
   let homeworkTotal = 0; // DO NOT MODIFY
   ///////////////////////// DO NOT MODIFY
 
-  do {
-    let testScore = Number(prompt("Please enter the score. Enter -1 when you are fiinished."));
-  } while (testScore < 0.0 || testScore > 100.0|| !Number.isInteger(testScore));
-
-
   /*
    * NOTE: The 'testTotal', 'quizTotal', and 'homeworkTotal' variables
    *       should be representative of the sum of the test scores, quiz
@@ -484,6 +480,86 @@ function reportCard() {
   let quizzes = 0; //// DO NOT MODIFY
   let homeworks = 0; // DO NOT MODIFY
   ///////////////////// DO NOT MODIFY
+  let testScore = 0;
+  let quizScore = 0;
+  let homeworkScore = 0;
+  let testAverage = 0;
+  let quizAverage = 0;
+  let homerworkAverage = 0;
+
+   /*
+
+    * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
+
+    *       representative of the number of tests, quizzes, and homework
+
+    *       grades the user enters, respectively.
+
+    */
+
+ testScore = prompt("Please enter a test score. Enter -1 if you have finished.");
+    while (testScore) {
+      testScore = parseFloat(testScore);
+
+   if (testScore == -1){
+     testScore = false;
+     break;
+   }
+ else if(testScore <= 100.00 && 0.0 <= testScore)
+   {
+     tests += 1;
+     testTotal += testScore;
+   }
+   else{
+   }
+   testScore = prompt("Please enter a test score. Enter -1 if you have finished.")
+ }
+
+ quizScore = prompt("Please enter a quiz score. Enter -1 if you have finished.");
+ while (quizScore) {
+   quizScore = parseFloat(quizScore);
+
+
+ if (quizScore == -1){
+  quizScore = false;
+  break;
+   }
+
+ else if(quizScore <= 100.00 && 0.0 <= quizScore)
+ {
+  quizzes += 1;
+  quizTotal += quizScore;
+ }
+ else{
+ }
+ quizScore = prompt("Please enter a quiz score. Enter -1 if you have finished.")
+ }
+
+ homeworkScore = prompt("Please enter a test score. Enter -1 if you have finished.");
+
+ while (homeworkScore) {
+   homeworkScore = parseFloat(homeworkScore);
+ if (homeworkScore == -1){
+  homeworkScore = false;
+  break;
+ }
+ else if(homeworkScore <= 100.00 && 0.0 <= homeworkScore)
+ {
+  homeworks += 1;
+  homeworkTotal += homeworkScore;
+ }
+ else{
+ }
+ homeworkscore = prompt("Please enter a homework score. Enter -1 if you have finished.")
+ }
+
+ testAverage = testTotal/tests;
+ quizAverage = quizTotal/quizzes;
+ homeworkAverage = homeworkTotal/homeworks;
+ totalAverage = (testAverage * 0.6) + (quizAverage * 0.3) + (homeworkAverage * 0.1);
+
+
+ document.getElementById("report-card-output").innerHTML = "Tests: " + testAverage.toFixed(2) + "</br>Quizzes: " + quizAverage.toFixed(2) + "</br>Homework: " + homeworkAverage.toFixed(2) + "</br>Grade: " + totalAverage.toFixed(2);
 
   /*
    * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
