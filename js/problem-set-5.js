@@ -431,8 +431,8 @@ function gymnastics() {
 
    let Total = Number(score1) + Number(score2) + Number(score3) + Number(score4) + Number(score5) + Number(score6);
    let average = (Total - Math.max(score1, score2, score3, score4, score5, score6) - Math.min(score1, score2, score3, score4, score5, score6)) / 4;
-   let div6 = document.getElementById('gymnastics-output');
-   div6.innerHTML = 'Discarded: ' + Math.min(score1, score2, score3, score4, score5, score6) + ', ' + Math.max(score1, score2, score3, score4, score5, score6) + '<br />Score: ' + average.toFixed(2);
+   let div6 = document.getElementById("gymnastics-output");
+   div6.innerHTML = "Discarded: " + Math.min(score1, score2, score3, score4, score5, score6) + ", " + Math.max(score1, score2, score3, score4, score5, score6) + '<br />Score: ' + average.toFixed(2);
 
 
   /////////////////////////////// DO NOT MODIFY
