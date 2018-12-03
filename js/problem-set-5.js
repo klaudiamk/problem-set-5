@@ -200,7 +200,6 @@ function credit() {
       digit = cardInt % 10;
 
       cardInt = Math.floor(cardInt / 10);
-
       if (even) {
         digit *= 2;
       }
