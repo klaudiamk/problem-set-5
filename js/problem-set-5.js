@@ -186,7 +186,7 @@ function credit() {
 
   while (true){
     card = prompt("Please enter your credit card number: ");
-    if ((card.length == 16) && Number.isInteger(Number(card))){
+    if ((card.length == 16 || card.length == 15 || card.length == 13) && Number.isInteger(Number(card))){
       break;
     }
   }
@@ -524,7 +524,7 @@ function reportCard() {
   quizScore = false;
   break;
    }
-   
+
  else if(quizScore <= 100.00 && 0.0 <= quizScore)
  {
   quizzes += 1;
