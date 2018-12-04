@@ -524,7 +524,7 @@ function reportCard() {
   quizScore = false;
   break;
    }
-
+   
  else if(quizScore <= 100.00 && 0.0 <= quizScore)
  {
   quizzes += 1;
